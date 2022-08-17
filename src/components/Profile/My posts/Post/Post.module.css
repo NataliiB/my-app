@@ -1,0 +1,10 @@
+.post {
+    color: black;
+    padding: 20px;
+};
+
+.postAvatar {
+    width: 150px;
+    height: 100px;
+    border-radius: 50%;
+}
