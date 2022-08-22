@@ -2,7 +2,8 @@ import classes from './Nav.module.css';
 import { NavLink } from 'react-router-dom';
 import NavbarFriends from './NavbarFriends/NavbarFriends';
 const Nav = (props) => {
-  let usersFriendsElements = props.navFriends.map(n=> <NavbarFriends avatar={n.avatar} name={n.name}/>)
+  console.log(props)
+  // let usersFriendsElements = props.navFriends.map(n=> <NavbarFriends avatar={n.avatar} name={n.name}/>)
   return (
     
     <nav className={classes.nav} >
@@ -24,7 +25,7 @@ const Nav = (props) => {
         <NavLink to='/settings'>Settings</NavLink>
       </div>
       <div>
-       {usersFriendsElements}
+       
       </div>
     </nav>
   )

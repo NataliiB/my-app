@@ -8,18 +8,20 @@ import { Route, Routes } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import DialogesContainer from './components/Dialoges/DialogesContainer';
 
 
 
 const App = (props) => {
+  
   return (
       <div className='app-wrapper'>
         <Header />
-        <Nav navFriends={props.appState.usersFriendsPage.friendsData}/>
+        <Nav />
         <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile' element={<Profile profilePage={props.appState.profilePage} dispatch={props.dispatch}/>} />
-          <Route path='/dialoges' element={<Dialoges dialogesGeneralData={props.appState.dialogesPage} dispatch={props.dispatch}/>} />
+          <Route path='/profile' element={<Profile/>} />
+          <Route path='/dialoges' element={<DialogesContainer/>} />
           <Route path='/news' element={<News/>}/>
           <Route path='/music' element={<Music/>}/>
           <Route path='/settings' element={<Settings/>}/>
