@@ -1,5 +1,5 @@
 import profileReducer from "./ProfileReducer";
-import usersFriendsReducer from "./UsersFriendsReducer";
+import usersFriendsReducer from "./UsersReducer";
 import dialogesReducer from "./DialogesReducer";
 
 const ADD_POST = 'ADD-POST';

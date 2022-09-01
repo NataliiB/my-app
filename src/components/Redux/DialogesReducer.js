@@ -18,17 +18,21 @@ let initialState = {
 export const dialogesReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.messageBody;
-            return state;
+            return {
+                ...state,
+                newMessageBody: action.messageBody
+            }
         case SEND_MESSAGE:
             let messageBody = state.newMessageBody;
-            state.messagesData.push({ id: 4, message: messageBody });
-            state.newMessageBody = '';
-            return state;
+            return {
+                ...state,
+                messagesData: [...state.messagesData, { id: 4, message: messageBody }],
+                newMessageBody: ''
+            }
         default: return state;
     }
-};
-export const updateNewMessageCreator = (body) =>
-    ({ type: UPDATE_NEW_MESSAGE_BODY, messageBody: body });
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+}
+    export const updateNewMessageCreator = (body) =>
+        ({ type: UPDATE_NEW_MESSAGE_BODY, messageBody: body });
+    export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
     export default dialogesReducer;
