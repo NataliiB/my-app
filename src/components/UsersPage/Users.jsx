@@ -1,28 +1,45 @@
 import React from "react";
 import classes from "./Users.module.css";
 import userPhoto from "./../../Images/icon-256x256.png";
+import { NavLink } from "react-router-dom";
 
-const Users=(props)=>{
-    let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize);
-    let pages = [];
-    for(let i=1;i<=pagesCount;i++){
-      pages.push(i)
-    };
-   
-    return (<div>
-         {pages.map(p=>{
-           return <button className={(props.currentPage === p)?classes.selectedPage:classes.otherPages} onClick = {()=>{props.onPageChanged(p)}}>{p}</button>
-           
-         })}
-        
+const Users = (props) => {
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
+
+  return (
+    <>
+      <div>
+        {pages.map((p) => {
+          return (
+            <button
+              className={
+                props.currentPage === p
+                  ? classes.selectedPage
+                  : classes.otherPages
+              }
+              onClick={() => {
+                props.onPageChanged(p);
+              }}
+            >
+              {p}
+            </button>
+          );
+        })}
+
         {props.users.map((u) => (
           <div key={u.id}>
             <div>
-              <img
-                alt=""
-                src={null ? userPhoto : u.avatar}
-                className={classes.avatar}
-              />
+              <NavLink to={"/profile/"+u.id}>
+                <img
+                  alt=""
+                  src={null ? userPhoto : u.avatar}
+                  className={classes.avatar}
+                />
+              </NavLink>
             </div>
             <div>
               {u.followed ? (
@@ -48,8 +65,8 @@ const Users=(props)=>{
           </div>
         ))}
       </div>
-    );
-  }
-
+    </>
+  );
+};
 
 export default Users;
