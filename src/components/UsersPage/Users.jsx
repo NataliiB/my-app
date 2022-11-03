@@ -60,7 +60,7 @@ const Users = (props) => {
                 </button>
               )}
             </div>
-            <div>{u.name}</div>
+            <div>{u.fullname}</div>
             <div>{u.status}</div>
           </div>
         ))}
