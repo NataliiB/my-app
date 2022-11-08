@@ -13,7 +13,6 @@ import UsersContainer from './components/UsersPage/UsersContainer';
 
 
 const App = (props) => {
-  
   return (
       <div className='app-wrapper'>
         <Header />

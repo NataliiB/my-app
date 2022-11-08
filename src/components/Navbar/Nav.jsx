@@ -2,7 +2,6 @@ import classes from './Nav.module.css';
 import { NavLink } from 'react-router-dom';
 import NavbarFriends from './NavbarFriends/NavbarFriends';
 const Nav = (props) => {
-  console.log(props)
   // let usersFriendsElements = props.navFriends.map(n=> <NavbarFriends avatar={n.avatar} name={n.name}/>)
   return (
     

@@ -3,7 +3,6 @@ import classes from './ProfileInfo.module.css';
 import MyPostsContainer from '../My posts/MyPostsContainer';
 
 const ProfileInfo = (props) => {
-    debugger
     if(!props.profile){
         return <Preloader/>
     }
