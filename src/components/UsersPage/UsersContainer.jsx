@@ -9,7 +9,7 @@ export class UsersConnectApi extends React.Component {
       this.props.toggleIsFetching(true);
         axios
         .get(`http://localhost:3001/api/v1/users`)
-          // .get(`http://localhost:3001/api/v1/users=${this.props.currentPage}&count=${this.props.pageSize}`)
+          .get(`http://localhost:3001/api/v1/users=${this.props.currentPage}&count=${this.props.pageSize}`)
           .then((response) => {
             this.props.toggleIsFetching(false);
             this.props.setTotalUsersCount(response.data.totalUsersCount);
@@ -34,13 +34,7 @@ export class UsersConnectApi extends React.Component {
       {console.log(this.props)}
       {this.props.isFetching ? <Preloader/> : null}
       <Users totalUsersCount={this.props.totalUsersCount}
-             pageSize={this.props.pageSize}
-             currentPage={this.props.currentPage}
-             onPageChanged={this.onPageChanged}
              users={this.props.users}
-             follow={this.props.follow}
-             unfollow={this.props.unfollow}
-             isFetching={this.props.isFetching}
              setUsers={this.props.setUsers}/>
              </>)
     }

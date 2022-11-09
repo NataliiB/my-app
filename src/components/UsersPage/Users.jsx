@@ -12,10 +12,10 @@ const Users = (props) => {
   // }
   return;
   <div>
-    {props.users.map((u) => (
+    {props.users.usersData.map((u) => (
       <div key={u.id}>
         {" "}
-        <div>
+        {/* <div>
           <NavLink to={"/profile/" + u.id}>
             <img
               alt=""
@@ -23,9 +23,9 @@ const Users = (props) => {
               className={classes.avatar}
             />
           </NavLink>
-        </div>{" "}
+        </div>{" "} */}
         
-        <div>
+        {/* <div>
           {u.followed ? (
             <button
               onClick={() => {
@@ -43,7 +43,7 @@ const Users = (props) => {
               Follow
             </button>
           )}
-        </div>
+        </div> */}
         <div>{u.fullname}</div>
         <div>{u.status}</div>
       </div>

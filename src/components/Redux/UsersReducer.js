@@ -1,6 +1,6 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET-USERS';
+const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
@@ -29,46 +29,46 @@ let initialState = {
 
 export const usersReducer = (state = initialState, action) => {
   switch (action) {
-    case FOLLOW:
-      return {
-        ...state,
-        users: state.usersData.map(u => {
-          if (u.id === action.userId) {
-            return { ...u, followed: true }
-          }
-          return u;
-        })
-      }
-    case UNFOLLOW:
-      return {
-        ...state,
-        users: state.usersData.map(u => {
-          if (u.id === action.userId) {
-            return { ...u, followed: false }
-          }
-          return u;
-        })
-      }
+    // case FOLLOW:
+    //   return {
+    //     ...state,
+    //     users: state.usersData.map(u => {
+    //       if (u.id === action.userId) {
+    //         return { ...u, followed: true }
+    //       }
+    //       return u;
+    //     })
+    //   }
+    // case UNFOLLOW:
+    //   return {
+    //     ...state,
+    //     users: state.usersData.map(u => {
+    //       if (u.id === action.userId) {
+    //         return { ...u, followed: false }
+    //       }
+    //       return u;
+    //     })
+    //   }
     case SET_USERS:
       return {
         ...state,
         usersData: [action.users]
       }
-      case SET_CURRENT_PAGE:
-        return {
-        ...state,
-        currentPage:action.currentPage
-        }
-        case SET_TOTAL_USERS_COUNT:
-          return {
-            ...state,
-            totalUsersCount : action.totalUsersCount
-          }
-          case TOGGLE_IS_FETCHING:
-            return {
-              ...state,
-              isFetching : action.isFetching
-            }
+    //   case SET_CURRENT_PAGE:
+    //     return {
+    //     ...state,
+    //     currentPage:action.currentPage
+    //     }
+    //     case SET_TOTAL_USERS_COUNT:
+    //       return {
+    //         ...state,
+    //         totalUsersCount : action.totalUsersCount
+    //       }
+    //       case TOGGLE_IS_FETCHING:
+    //         return {
+    //           ...state,
+    //           isFetching : action.isFetching
+    //         }
     default:
       return state;
   }
