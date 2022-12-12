@@ -1,8 +1,6 @@
 import axios from "axios";
 import { initialState, setUsersProfileAC } from "../Redux/UsersReducer";
 import React, { useEffect } from "react";
-import { configureStore } from "@reduxjs/toolkit";
-import { connect } from "react-redux";
 import UsersProfile from "./UsersProfile";
 import { useState } from "react";
 
