@@ -7,6 +7,7 @@ const Users = (props) => {
   console.log(props);
   // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   // let pages = [];
+<<<<<<< HEAD
   // for (let i = 1; i <= pagesCount; i++) {
   //   pages.push(i);
   // }
@@ -49,6 +50,27 @@ const Users = (props) => {
       </div>
     ))}
   </div>;
+=======
+  // for(let i=1;i<=pagesCount;i++){
+  //   pages.push(i)
+  // };
+  if (props.loading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div>
+      {props.users.map((u) => (
+        <div key={u.id}>
+          <NavLink to={'/usersProfile'}>
+          <div>{u.fullname}</div>
+          </NavLink>
+          <div>{u.status}</div>
+          <img src={u.image_url}/>
+        </div>
+      ))}
+    </div>
+  );
+>>>>>>> f535ae7... Adding usersProfile page
 };
 
 export default Users;
