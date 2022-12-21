@@ -5,7 +5,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 
 
-let initialState = {
+export let initialState = {
   usersData: [
     {
       id: 1, fullName: 'Katya Nazarova', status: 'I`m very pretty', followed: false,
@@ -65,11 +65,11 @@ export const usersReducer = (state = initialState, action) => {
             ...state,
             totalUsersCount : [...state.totalUsersCount, action.totalUsersCount]
           }
-          case SET_USERS_PROFILE:
-            return {
-              ...state,
-              profile : [...state.profile, action.profile]
-            }
+          // case SET_USERS_PROFILE:
+          //   return {
+          //     ...state,
+          //     profile : [...state.profile, action.profile]
+          //   }
     default:
       return state;
   }
@@ -78,6 +78,6 @@ export const followAC = (userId) => ({ type: FOLLOW, userId });
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsersAC = (users) => ({ type: SET_USERS, users});
 export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage});
-export const setUsersProfileAC =(profile) => ({type: SET_USERS_PROFILE, profile})
+// export const setUsersProfileAC =(profile) => ({type: SET_USERS_PROFILE, profile})
 
 export default usersReducer;

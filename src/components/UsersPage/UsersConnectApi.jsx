@@ -2,14 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Users from "./Users";
 import { initialState } from "../Redux/UsersReducer";
-import { Pagination } from "../Pagination/Pagination";
+// import { createContext } from "react";
+import Pagination from "./Pagination";
+
 
 export default function UsersConnectApi() {
   const [newState, setNewState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 3;
-  const UsersProfileContext = createContext()
+  // const UsersProfileContext = createContext()
 
   const request = async () => {
     try {
@@ -17,6 +19,7 @@ export default function UsersConnectApi() {
       const response = await axios.get(`http://localhost:3001/api/v1/users`);
       setNewState(response.data);
       setLoading(false);
+      console.log(response.data)
     } catch (err) {
       console.log(err);
     }
@@ -24,21 +27,6 @@ export default function UsersConnectApi() {
 
   useEffect(() => {
     request();
-    //  onPageChanged(pageNumber){
-    //   this.props.setCurrentPage(pageNumber);
-    //   axios
-    //       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-    //       .then((response) => {
-    //         this.props.setUsers(response.data.items);
-    //         this.props.setTotalUsersCount(response.data.totalUsersCount);
-    //       });
-    //  }
-
-    // let pagesCount = Math.ceil(this.props.totalUsersCount/this.props.pageSize);
-    // let pages = [];
-    // for(let i=1;i<=pagesCount;i++){
-    //   pages.push(i)
-    // };
   }, []);
 
   const indexOfLastUser = currentPage * usersPerPage;
@@ -53,11 +41,11 @@ export default function UsersConnectApi() {
   return (
     <div>
       <Users users={currentUsers} loading={loading}/>
-      <Pagination
+      {<Pagination
         totalUsers={newState.usersData.length}
         usersPerPage={usersPerPage}
         paginate={paginate}
-      />
+      /> }
     </div>
   );
 }
