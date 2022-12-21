@@ -5,7 +5,7 @@ import UsersProfile from "./UsersProfile";
 import { useState } from "react";
 
 export default function UsersProfileContainer() {
-  const [newProfile, setNewProfile] = useState(initialState.profile);
+  const UsersProfileContext = createContext();
   const request = async () => {
     try {
       const response = await axios.get(`http://localhost:3001/api/v1/users`);

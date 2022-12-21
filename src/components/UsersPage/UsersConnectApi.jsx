@@ -9,6 +9,7 @@ export default function UsersConnectApi() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 3;
+  const UsersProfileContext = createContext()
 
   const request = async () => {
     try {
